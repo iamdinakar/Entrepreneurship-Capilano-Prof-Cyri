@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Entrepreneurial Pursuits</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --bg-soft: #fafafa;
+      --card-bg: #ffffff;
+      --border-subtle: #e5e7eb;
+      --text-main: #0f172a;
+      --text-muted: #6b7280;
+      --accent: #2563eb;
+      --accent-soft: #eff3ff;
+      --pill-bg: #edf2ff;
+      --radius-lg: 18px;
+      --radius-md: 999px;
+      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: var(--bg-soft);
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .site-header {
+      background: radial-gradient(circle at top left, #ffffff, #f6f7fb);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0 6px;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .nav-pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(255, 255, 255, 0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero {
+      padding: 56px 0 52px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (max-width: 820px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 32px;
+        padding-bottom: 42px;
+      }
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0 0 16px;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 22px;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 34rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-md);
+      background: var(--pill-bg);
+      font-size: 0.8rem;
+      color: #4b5563;
+      border: 1px solid rgba(191, 219, 254, 0.9);
+      white-space: nowrap;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #38bdf8;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      border: none;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 14px 40px rgba(37, 99, 235, 0.25);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow: 0 18px 50px rgba(37, 99, 235, 0.29);
+    }
+
+    .btn-secondary {
+      border-radius: var(--radius-md);
+      padding: 9px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(255, 255, 255, 0.85);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background 0.12s ease, transform 0.12s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
+    .hero-panel {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 22px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-panel-title {
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .hero-panel-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-panel-pill {
+      flex: 1 1 140px;
+      border-radius: 16px;
+      padding: 12px 13px;
+      border: 1px solid var(--border-subtle);
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .hero-panel-pill-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .hero-panel-pill-main {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .hero-panel-footnote {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .section {
+      padding: 54px 0;
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-end;
+      margin-bottom: 24px;
+    }
+
+    .section-title-block h2 {
+      font-size: 1.4rem;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title-block p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 29rem;
+    }
+
+    .section-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 980px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 16px;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.08);
+      border-color: rgba(148, 163, 184, 0.7);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.7rem;
+      color: #6b7280;
+      background: rgba(255, 255, 255, 0.9);
+      white-space: nowrap;
+    }
+
+    .badge-soft {
+      background: var(--accent-soft);
+      border-color: rgba(129, 140, 248, 0.8);
+      color: #1d4ed8;
+    }
+
+    .card-title {
+      margin: 0 0 2px;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card-role {
+      margin: 0;
+      font-size: 0.82rem;
+      color: #9ca3af;
+    }
+
+    .card-body {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .dot-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .layout-two {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .layout-two {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .list-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .pill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .pill-list li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .pill-list li span {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .list-bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      margin-top: 7px;
+      background: #c4b5fd;
+    }
+
+    .timeline {
+      border-radius: 20px;
+      padding: 18px 18px 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .timeline-list {
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 80px minmax(0, 1fr);
+      gap: 10px;
+      padding: 9px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-bottom: 1px dashed rgba(226, 232, 240, 0.9);
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .timeline-year {
+      font-weight: 500;
+      color: #6b7280;
+      font-size: 0.8rem;
+    }
+
+    .timeline-main {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .timeline-note {
+      display: block;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .callout {
+      border-radius: 24px;
+      padding: 22px 22px 18px;
+      background: linear-gradient(135deg, #ffffff, #f4f4fb);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .callout-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .callout-header h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .callout-header p {
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      max-width: 26rem;
+    }
+
+    .callout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 960px) {
+      .callout-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .callout-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .callout-card {
+      border-radius: 16px;
+      padding: 13px 14px 11px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      font-size: 0.86rem;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .callout-card-title {
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .callout-card-body {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .callout-card-tag {
+      font-size: 0.76rem;
+      color: #9ca3af;
+    }
+
+    .site-footer {
+      padding: 26px 0 30px;
+      border-top: 1px solid rgba(148, 163, 184, 0.25);
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: #9ca3af;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-contact span {
+      color: #6b7280;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="logo">Entrepreneurial Pursuits</div>
+      <div class="nav-links">
+        <span>Studio of ongoing experiments</span>
+        <span class="nav-pill">
+          <span class="nav-dot"></span>
+          Available for conversations
+        </span>
+      </div>
+    </div>
+
+    <section class="hero container">
+      <div>
+        <p class="eyebrow">Founder • Builder • Entrepreneur</p>
+        <h1 class="hero-title">One person, many ventures.<br />All under one mind.</h1>
+        <p class="hero-subtitle">
+          A living snapshot of the products, experiments, and businesses I’m building.
+          From SaaS to services, this page keeps the story clean, simple, and up to date.
+        </p>
+
+        <div class="hero-tags">
+          <span class="pill"><span class="pill-dot"></span> SaaS & digital products</span>
+          <span class="pill">Lean experiments</span>
+          <span class="pill">Long-term value over hype</span>
+        </div>
+
+        <div class="hero-cta-row">
+          <!-- Replace mailto and links with your own -->
+          <button class="btn-primary" onclick="window.location.href='mailto:you@yourdomain.com';">
+            Let’s build something
+            <span aria-hidden="true">↗</span>
+          </button>
+          <button class="btn-secondary" onclick="document.getElementById('pursuits').scrollIntoView({ behavior: 'smooth' });">
+            View current pursuits
+          </button>
+        </div>
+
+        <p class="hero-meta">
+          Update this file whenever a pursuit evolves. One page → complete overview.
+        </p>
+      </div>
+
+      <aside class="hero-panel" aria-label="Snapshot">
+        <div>
+          <div class="hero-panel-title">At a glance</div>
+          <div class="hero-panel-row">
+            <div class="hero-panel-pill">
+              <div class="hero-panel-pill-label">Focus</div>
+              <div class="hero-panel-pill-main">Bootstrapped products</div>
+            </div>
+            <div class="hero-panel-pill">
+              <div class="hero-panel-pill-label">Now</div>
+              <div class="hero-panel-pill-main">Shipping weekly</div>
+            </div>
+            <div class="hero-panel-pill">
+              <div class="hero-panel-pill-label">Collabs</div>
+              <div class="hero-panel-pill-main">Strategic partners only</div>
+            </div>
+          </div>
+        </div>
+        <p class="hero-panel-footnote">
+          Hint: Edit the text in this panel to match your real focus, commitments, and bandwidth.
+        </p>
+      </aside>
+    </section>
+  </header>
+
+  <main>
+    <!-- Current Pursuits -->
+    <section id="pursuits" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-block">
+            <h2>Current pursuits</h2>
+            <p>
+              A quick overview of what I’m actively building or running. Each card is one live
+              pursuit: product, service, or experiment.
+            </p>
+          </div>
+          <div class="section-meta">
+            <!-- Update this text as needed -->
+            Last revised: <strong>Nov 2025</strong> · 3–6 active tracks at any time
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Card 1 -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3 class="card-title">Flagship SaaS</h3>
+                <p class="card-role">Founder & Product Lead</p>
+              </div>
+              <span class="badge badge-soft">Stage: Scaling</span>
+            </header>
+            <p class="card-body">
+              Core product focused on recurring revenue. Tight feedback loop with users, lean releases,
+              and clear roadmap. This is where most of the strategic energy goes.
+            </p>
+            <footer class="card-footer">
+              <span class="dot-row">
+                <span class="dot"></span>
+                <span>Weekly feature cycles</span>
+              </span>
+              <span>Primary growth channel: Content & referrals</span>
+            </footer>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3 class="card-title">Consulting / Advisory</h3>
+                <p class="card-role">Strategy & Systems</p>
+              </div>
+              <span class="badge">Stage: Select Clients</span>
+            </header>
+            <p class="card-body">
+              High-leverage projects with a few aligned founders. Focus on positioning, automation,
+              and turning ideas into profitable systems—not just slides.
+            </p>
+            <footer class="card-footer">
+              <span>Ideal fit: Early-stage tech & digital businesses</span>
+              <span>Engagements: Project or monthly</span>
+            </footer>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3 class="card-title">Experiments & Micro-Projects</h3>
+                <p class="card-role">Solo builder</p>
+              </div>
+              <span class="badge">Stage: Ongoing</span>
+            </header>
+            <p class="card-body">
+              Small bets: single-file tools, niche products, and creative experiments. Many will fail
+              quietly; a few become real businesses or strong lead magnets.
+            </p>
+            <footer class="card-footer">
+              <span>Goal: Learn fast with low risk</span>
+              <span>Time budget: Nights & weekends</span>
+            </footer>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3 class="card-title">Content & Personal Brand</h3>
+                <p class="card-role">Writing & creative direction</p>
+              </div>
+              <span class="badge">Stage: Consistent</span>
+            </header>
+            <p class="card-body">
+              Writing about building, systems, and lessons learned. Long-form pieces, social posts,
+              and behind-the-scenes updates that compound trust over time.
+            </p>
+            <footer class="card-footer">
+              <span>Platforms: Newsletter & social</span>
+              <span>Cadence: 1–3 pieces / week</span>
+            </footer>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3 class="card-title">Long-Term Bets</h3>
+                <p class="card-role">Research & exploration</p>
+              </div>
+              <span class="badge">Stage: Thinking</span>
+            </header>
+            <p class="card-body">
+              Space reserved for bigger arcs: new markets, new technologies, or future products that
+              don’t need to ship tomorrow but quietly shape today’s decisions.
+            </p>
+            <footer class="card-footer">
+              <span>Time horizon: 3–10 years</span>
+              <span>Output: Notes, prototypes, models</span>
+            </footer>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h3 class="card-title">Community & Relationships</h3>
+                <p class="card-role">Founder & host</p>
+              </div>
+              <span class="badge">Stage: Building</span>
+            </header>
+            <p class="card-body">
+              Conversations with founders, builders, and operators who think long-term. Small,
+              intentional circles instead of random networking.
+            </p>
+            <footer class="card-footer">
+              <span>Format: 1:1 and small groups</span>
+              <span>Goal: Shared leverage, not transactions</span>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Principles & Timeline -->
+    <section class="section">
+      <div class="container layout-two">
+        <div>
+          <p class="list-title">How I build</p>
+          <h2 style="margin: 0 0 10px; font-size: 1.2rem; letter-spacing: -0.02em;">
+            Operating principles
+          </h2>
+          <p style="margin: 0 0 18px; font-size: 0.9rem; color: var(--text-muted); max-width: 30rem;">
+            Simple rules that guide how I choose projects, work with people, and make decisions when
+            the path isn’t obvious.
+          </p>
+
+          <ul class="pill-list">
+            <li>
+              <span class="list-bullet"></span>
+              Build for clarity, not complexity.
+              <span>Every project should be explainable in one sentence.</span>
+            </li>
+            <li>
+              <span class="list-bullet"></span>
+              Ship small, real things often.
+              <span>Momentum beats perfection; feedback is more accurate than theory.</span>
+            </li>
+            <li>
+              <span class="list-bullet"></span>
+              Respect energy & attention.
+              <span>Align work with strengths and protect focus from busywork.</span>
+            </li>
+            <li>
+              <span class="list-bullet"></span>
+              Relationships > transactions.
+              <span>Play the long game. Be easy to recommend, not easy to forget.</span>
+            </li>
+            <li>
+              <span class="list-bullet"></span>
+              Systems over willpower.
+              <span>Design processes that make the right things happen by default.</span>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="timeline" aria-label="Timeline">
+          <div class="hero-panel-title" style="margin-bottom: 4px;">Timeline (high-level)</div>
+          <ul class="timeline-list">
+            <li class="timeline-item">
+              <div class="timeline-year">Earlier</div>
+              <div>
+                <span class="timeline-main">Learning & freelance work</span>
+                <span class="timeline-note">Experimenting with skills, clients, and industries.</span>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-year">Then</div>
+              <div>
+                <span class="timeline-main">First serious products & services</span>
+                <span class="timeline-note">Proving things can make money, not just look good.</span>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-year">Now</div>
+              <div>
+                <span class="timeline-main">Focused portfolio of ventures</span>
+                <span class="timeline-note">Aligning everything under a coherent thesis.</span>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-year">Next</div>
+              <div>
+                <span class="timeline-main">Deeper, fewer, bigger bets</span>
+                <span class="timeline-note">Compounding assets: brand, systems, and relationships.</span>
+              </div>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Collaboration / Contact -->
+    <section class="section">
+      <div class="container">
+        <div class="callout">
+          <div class="callout-header">
+            <div>
+              <h2>Ways we can work together</h2>
+              <p>
+                If our interests align, I’m open to a few specific types of collaboration. Clear
+                scope, transparent value, and no drama.
+              </p>
+            </div>
+            <div>
+              <span class="pill">
+                <span class="pill-dot"></span>
+                Best reached via email
+              </span>
+            </div>
+          </div>
+
+          <div class="callout-grid">
+            <div class="callout-card">
+              <p class="callout-card-title">Founder to founder</p>
+              <p class="callout-card-body">
+                Swapping notes, exploring ideas, or walking through a live problem in your business.
+                Casual, honest, and off the record.
+              </p>
+              <span class="callout-card-tag">Ideal: early-stage, product-leaning founders</span>
+            </div>
+
+            <div class="callout-card">
+              <p class="callout-card-title">Advisory & strategy</p>
+              <p class="callout-card-body">
+                Helping you clarify positioning, offers, and systems so you’re not just “busy” but
+                actually building leverage.
+              </p>
+              <span class="callout-card-tag">Format: short sprints or light retainer</span>
+            </div>
+
+            <div class="callout-card">
+              <p class="callout-card-title">Product & growth experiments</p>
+              <p class="callout-card-body">
+                Collaborating on small, scoped experiments: landing pages, MVPs, or one-file tools
+                designed to test demand quickly.
+              </p>
+              <span class="callout-card-tag">Outcome: data, not just ideas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        Available for
+        <span class="pill">thoughtful collaborations</span>
+        <span class="pill">select advisory</span>
+        <span class="pill">interesting problems</span>
+      </div>
+      <div class="footer-contact">
+        <!-- Replace these links with your real ones -->
+        <span>Email:</span>
+        <a href="mailto:you@yourdomain.com">you@yourdomain.com</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+        <span>·</span>
+        <a href="https://yourwebsite.com" target="_blank" rel="noreferrer">Website</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
