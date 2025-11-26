@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Entrepreneurial Pursuits</title>
+  <title>Lifestyle Business & Creative Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -20,9 +20,7 @@
       --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.06);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -43,9 +41,7 @@
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
+    a:hover { text-decoration: underline; }
 
     .container {
       max-width: 1120px;
@@ -84,6 +80,7 @@
       gap: 18px;
       font-size: 0.85rem;
       color: var(--text-muted);
+      flex-wrap: wrap;
     }
 
     .nav-pill {
@@ -94,6 +91,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      cursor: default;
     }
 
     .nav-dot {
@@ -139,17 +137,23 @@
     }
 
     .hero-subtitle {
-      margin: 0 0 22px;
+      margin: 0 0 12px;
       color: var(--text-muted);
       font-size: 0.98rem;
       max-width: 34rem;
+    }
+
+    .hero-sub-question {
+      margin: 0 0 22px;
+      color: #4b5563;
+      font-size: 0.9rem;
     }
 
     .hero-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 26px;
+      margin-bottom: 18px;
     }
 
     .pill {
@@ -163,6 +167,25 @@
       color: #4b5563;
       border: 1px solid rgba(191, 219, 254, 0.9);
       white-space: nowrap;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .pill:hover {
+      background: #e0ecff;
+      transform: translateY(-1px);
+    }
+
+    .pill[data-target] {
+      position: relative;
+    }
+
+    .pill[data-target]::after {
+      content: 'Jump';
+      font-size: 0.7rem;
+      color: #64748b;
+      margin-left: 4px;
+      opacity: 0.8;
     }
 
     .pill-dot {
@@ -177,6 +200,7 @@
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
+      margin-bottom: 8px;
     }
 
     .btn-primary {
@@ -221,9 +245,19 @@
     }
 
     .hero-meta {
-      margin-top: 14px;
+      margin-top: 6px;
       font-size: 0.8rem;
       color: #94a3b8;
+    }
+
+    .hero-quick {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    .hero-quick strong {
+      font-weight: 500;
     }
 
     .hero-panel {
@@ -280,9 +314,26 @@
       color: var(--text-muted);
     }
 
-    .section {
-      padding: 54px 0;
+    .now-working {
+      margin-top: 6px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      font-size: 0.8rem;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
+
+    .now-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .section { padding: 54px 0; }
 
     .section-head {
       display: flex;
@@ -492,6 +543,7 @@
       font-weight: 500;
       color: #6b7280;
       font-size: 0.8rem;
+      white-space: nowrap;
     }
 
     .timeline-main {
@@ -506,6 +558,302 @@
       margin-top: 2px;
     }
 
+    /* Tools section */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 960px) {
+      .tools-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .tool-card {
+      border-radius: 22px;
+      padding: 18px 18px 16px;
+      background: #ffffff;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tool-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .tool-sub {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .inputs-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .input-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.8rem;
+      color: #4b5563;
+    }
+
+    .input-row label span {
+      font-size: 0.78rem;
+      color: #9ca3af;
+      margin-left: 4px;
+    }
+
+    input[type="number"],
+    input[type="range"],
+    select,
+    input[type="text"] {
+      font-family: inherit;
+      font-size: 0.85rem;
+      padding: 6px 8px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      outline: none;
+    }
+
+    input[type="range"] {
+      padding: 0;
+      height: 4px;
+      background: transparent;
+    }
+
+    input[type="number"]:focus,
+    select:focus,
+    input[type="text"]:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
+      background: #ffffff;
+    }
+
+    .input-inline {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+
+    .calc-output {
+      margin-top: 6px;
+      padding: 10px 10px 8px;
+      border-radius: 14px;
+      background: #f1f5f9;
+      font-size: 0.82rem;
+      color: #475569;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .calc-output strong {
+      font-weight: 600;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #cbd5f5;
+      background: #e5edff;
+      font-size: 0.7rem;
+      color: #4b5563;
+    }
+
+    /* Mini chart */
+    .mini-chart {
+      margin-top: 10px;
+      padding: 10px 10px 8px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      font-size: 0.78rem;
+      color: #64748b;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .chart-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chart-label {
+      width: 88px;
+      font-size: 0.78rem;
+      color: #475569;
+      white-space: nowrap;
+    }
+
+    .chart-bar {
+      flex: 1;
+      height: 8px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+
+    .chart-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #10b981);
+      width: 0%;
+      transition: width 0.2s ease;
+    }
+
+    .chart-note {
+      font-size: 0.72rem;
+      color: #9ca3af;
+    }
+
+    .example-buttons {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.78rem;
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 7px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: #ffffff;
+      font-size: 0.8rem;
+      color: #4b5563;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .btn-ghost:hover {
+      background: #f9fafb;
+    }
+
+    .btn-ghost.small {
+      padding: 5px 10px;
+      font-size: 0.78rem;
+    }
+
+    /* Idea lab */
+    .idea-output {
+      margin-top: 8px;
+      padding: 9px 10px 8px;
+      border-radius: 14px;
+      background: #f9fafb;
+      border: 1px dashed #e2e8f0;
+      font-size: 0.82rem;
+      color: #475569;
+      min-height: 54px;
+    }
+
+    .idea-output-title {
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .idea-output-next {
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    .idea-button-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    /* Offer mix tool */
+    .offer-card {
+      margin-top: 20px;
+    }
+
+    .offer-chart {
+      margin-top: 8px;
+      padding: 9px 10px 8px;
+      border-radius: 14px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      font-size: 0.8rem;
+      color: #475569;
+    }
+
+    .offer-bar {
+      display: flex;
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 6px;
+      background: #e5e7eb;
+    }
+
+    .offer-segment {
+      height: 100%;
+    }
+
+    .offer-segment.services {
+      background: #2563eb;
+    }
+
+    .offer-segment.products {
+      background: #10b981;
+    }
+
+    .offer-segment.experiments {
+      background: #f97316;
+    }
+
+    .offer-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    .offer-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .offer-legend-color {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    .offer-note {
+      margin-top: 6px;
+      font-size: 0.76rem;
+      color: #9ca3af;
+    }
+
+    /* Callout & FAQ */
     .callout {
       border-radius: 24px;
       padding: 22px 22px 18px;
@@ -580,6 +928,54 @@
       color: #9ca3af;
     }
 
+    .faq {
+      margin-top: 26px;
+    }
+
+    .faq-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #475569;
+    }
+
+    .faq-item {
+      border-radius: 14px;
+      border: 1px solid rgba(203, 213, 225, 0.9);
+      background: rgba(255, 255, 255, 0.9);
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 9px 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-size: 0.86rem;
+      color: #334155;
+    }
+
+    .faq-toggle {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 11px;
+      font-size: 0.82rem;
+      color: #64748b;
+      transition: max-height 0.2s ease, padding-bottom 0.2s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding-bottom: 9px;
+    }
+
     .site-footer {
       padding: 26px 0 30px;
       border-top: 1px solid rgba(148, 163, 184, 0.25);
@@ -601,8 +997,28 @@
       align-items: center;
     }
 
-    .footer-contact span {
-      color: #6b7280;
+    .footer-contact span { color: #6b7280; }
+
+    .copy-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      background: #f8fafc;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 6px;
+    }
+
+    .copy-btn span {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn.success {
+      border-color: #22c55e;
+      color: #16a34a;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -616,44 +1032,62 @@
 <body>
   <header class="site-header">
     <div class="container nav">
-      <div class="logo">Entrepreneurial Pursuits</div>
+      <div class="logo">Lifestyle Business Studio</div>
       <div class="nav-links">
-        <span>Studio of ongoing experiments</span>
+        <span>Calm profit • AI-assisted • Creative freedom</span>
         <span class="nav-pill">
           <span class="nav-dot"></span>
-          Available for conversations
+          Built for humans, not hustle culture
         </span>
       </div>
     </div>
 
     <section class="hero container">
       <div>
-        <p class="eyebrow">Founder • Builder • Entrepreneur</p>
-        <h1 class="hero-title">One person, many ventures.<br />All under one mind.</h1>
+        <p class="eyebrow">Lifestyle business • AI-assisted builder • Creative work</p>
+        <h1 class="hero-title">
+          A calm business, powered by AI<br />and driven by passion projects.
+        </h1>
         <p class="hero-subtitle">
-          A living snapshot of the products, experiments, and businesses I’m building.
-          From SaaS to services, this page keeps the story clean, simple, and up to date.
+          I’m building a life-first business: lean products, slow but steady growth,
+          and a lot of room for curiosity. AI helps with ideas, design mockups,
+          and demos—humans still make the decisions.
+        </p>
+        <p class="hero-sub-question">
+          As you read, ask yourself: <strong>“What would my version of this lifestyle look like?”</strong>
         </p>
 
         <div class="hero-tags">
-          <span class="pill"><span class="pill-dot"></span> SaaS & digital products</span>
-          <span class="pill">Lean experiments</span>
-          <span class="pill">Long-term value over hype</span>
+          <div class="pill" data-target="#pursuits">
+            <span class="pill-dot"></span> See the lifestyle business core
+          </div>
+          <div class="pill" data-target="#tools">
+            Try the live tools
+          </div>
+          <div class="pill" data-target="#passion-section">
+            Passion projects & creative work
+          </div>
         </div>
 
         <div class="hero-cta-row">
-          <!-- Replace mailto and links with your own -->
-          <button class="btn-primary" onclick="window.location.href='mailto:you@yourdomain.com';">
-            Let’s build something
+          <button class="btn-primary" id="emailBtn">
+            Start a calm collaboration
             <span aria-hidden="true">↗</span>
           </button>
           <button class="btn-secondary" onclick="document.getElementById('pursuits').scrollIntoView({ behavior: 'smooth' });">
-            View current pursuits
+            Browse current pursuits
           </button>
         </div>
 
         <p class="hero-meta">
-          Update this file whenever a pursuit evolves. One page → complete overview.
+          This page is a simple dashboard of how I use AI, what I’m building,
+          and the lifestyle I’m optimizing for.
+        </p>
+
+        <p class="hero-quick">
+          Try this: <strong>set your own numbers in the calculator below</strong>,
+          see how your lifestyle design looks, then
+          <strong>generate one experiment idea</strong> you could ship in a week.
         </p>
       </div>
 
@@ -662,22 +1096,27 @@
           <div class="hero-panel-title">At a glance</div>
           <div class="hero-panel-row">
             <div class="hero-panel-pill">
-              <div class="hero-panel-pill-label">Focus</div>
-              <div class="hero-panel-pill-main">Bootstrapped products</div>
+              <div class="hero-panel-pill-label">Lifestyle goal</div>
+              <div class="hero-panel-pill-main">Calm recurring income</div>
             </div>
             <div class="hero-panel-pill">
-              <div class="hero-panel-pill-label">Now</div>
-              <div class="hero-panel-pill-main">Shipping weekly</div>
+              <div class="hero-panel-pill-label">AI usage</div>
+              <div class="hero-panel-pill-main">Design, demos & drafts</div>
             </div>
             <div class="hero-panel-pill">
-              <div class="hero-panel-pill-label">Collabs</div>
-              <div class="hero-panel-pill-main">Strategic partners only</div>
+              <div class="hero-panel-pill-label">Focus split</div>
+              <div class="hero-panel-pill-main">Business · AI · passion</div>
             </div>
           </div>
         </div>
         <p class="hero-panel-footnote">
-          Hint: Edit the text in this panel to match your real focus, commitments, and bandwidth.
+          AI is a creative assistant here—not a black box. It helps me sketch,
+          prototype and explore ideas faster, while I keep the taste and direction human.
         </p>
+        <div class="now-working" id="nowWorking">
+          <span class="now-dot"></span>
+          <span>Today’s focus: drafting new micro-tool ideas with AI as my sketchpad.</span>
+        </div>
       </aside>
     </section>
   </header>
@@ -690,208 +1129,435 @@
           <div class="section-title-block">
             <h2>Current pursuits</h2>
             <p>
-              A quick overview of what I’m actively building or running. Each card is one live
-              pursuit: product, service, or experiment.
+              A map of where my energy goes: the lifestyle business that pays the bills,
+              AI-powered experiments that stretch what’s possible, and passion projects that keep it fun.
             </p>
-          </div>
-          <div class="section-meta">
-            <!-- Update this text as needed -->
-            Last revised: <strong>Nov 2025</strong> · 3–6 active tracks at any time
           </div>
         </div>
 
         <div class="cards-grid">
-          <!-- Card 1 -->
+          <!-- Card 1: Lifestyle business -->
           <article class="card">
             <header class="card-header">
               <div>
-                <h3 class="card-title">Flagship SaaS</h3>
-                <p class="card-role">Founder & Product Lead</p>
+                <h3 class="card-title">Lifestyle Business Core</h3>
+                <p class="card-role">Owner-operator</p>
               </div>
-              <span class="badge badge-soft">Stage: Scaling</span>
+              <span class="badge badge-soft">Purpose: Freedom & stability</span>
             </header>
             <p class="card-body">
-              Core product focused on recurring revenue. Tight feedback loop with users, lean releases,
-              and clear roadmap. This is where most of the strategic energy goes.
+              A lean, profitable service + product mix designed around a sustainable pace.
+              Clear offers, friendly clients, and systems that let me unplug without everything breaking.
+              If you value “enough” over “infinite more,” we’re probably on the same wavelength.
             </p>
             <footer class="card-footer">
               <span class="dot-row">
                 <span class="dot"></span>
-                <span>Weekly feature cycles</span>
+                <span>Optimized for time, not status</span>
               </span>
-              <span>Primary growth channel: Content & referrals</span>
+              <span>Revenue focus: recurring retainers & products</span>
             </footer>
           </article>
 
-          <!-- Card 2 -->
+          <!-- Card 2: AI design/demo -->
           <article class="card">
             <header class="card-header">
               <div>
-                <h3 class="card-title">Consulting / Advisory</h3>
-                <p class="card-role">Strategy & Systems</p>
+                <h3 class="card-title">AI-Assisted Design & Demos</h3>
+                <p class="card-role">Concept lab</p>
               </div>
-              <span class="badge">Stage: Select Clients</span>
+              <span class="badge">Stage: Always exploring</span>
             </header>
             <p class="card-body">
-              High-leverage projects with a few aligned founders. Focus on positioning, automation,
-              and turning ideas into profitable systems—not just slides.
+              Using AI for visual explorations, copy drafts, wireframes, and one-page flows.
+              Think of it as a fast sketchbook: testing how a product feels before committing full build time.
+              No fake “AI magic”—just honest tools to compress the early stages.
             </p>
             <footer class="card-footer">
-              <span>Ideal fit: Early-stage tech & digital businesses</span>
-              <span>Engagements: Project or monthly</span>
+              <span>Output: mockups, storyboards, one-file demos</span>
+              <span>Final decisions: human taste & judgement</span>
             </footer>
           </article>
 
-          <!-- Card 3 -->
+          <!-- Card 3: Simple digital tools -->
           <article class="card">
             <header class="card-header">
               <div>
-                <h3 class="card-title">Experiments & Micro-Projects</h3>
+                <h3 class="card-title">One-File Tools & Micro Products</h3>
                 <p class="card-role">Solo builder</p>
+              </div>
+              <span class="badge">Stage: Shipping small</span>
+            </header>
+            <p class="card-body">
+              Tiny tools that live in a single HTML file: planners, checklists,
+              and AI-assisted helpers that open instantly. No logins, no bloat.
+              Small, specific wins for real people.
+            </p>
+            <footer class="card-footer">
+              <span>Goal: Useful, fast, simple</span>
+              <span>Monetization: low-friction & optional</span>
+            </footer>
+          </article>
+
+          <!-- Card 4: Passion projects -->
+          <article class="card" id="passion-section">
+            <header class="card-header">
+              <div>
+                <h3 class="card-title">Passion Projects & Creative Work</h3>
+                <p class="card-role">Writer • maker</p>
               </div>
               <span class="badge">Stage: Ongoing</span>
             </header>
             <p class="card-body">
-              Small bets: single-file tools, niche products, and creative experiments. Many will fail
-              quietly; a few become real businesses or strong lead magnets.
+              Writing, music, visuals, and experimental side projects. Some turn into products,
+              some stay personal—but all of them feed the main business with fresh ideas.
             </p>
             <footer class="card-footer">
-              <span>Goal: Learn fast with low risk</span>
-              <span>Time budget: Nights & weekends</span>
+              <span>Priority: Expression over metrics</span>
+              <span>AI role: prompt, not author</span>
             </footer>
           </article>
 
-          <!-- Card 4 -->
+          <!-- Card 5: Learning & experiments -->
           <article class="card">
             <header class="card-header">
               <div>
-                <h3 class="card-title">Content & Personal Brand</h3>
-                <p class="card-role">Writing & creative direction</p>
+                <h3 class="card-title">Learning & Systems Experiments</h3>
+                <p class="card-role">Student of the game</p>
               </div>
-              <span class="badge">Stage: Consistent</span>
+              <span class="badge">Stage: Research</span>
             </header>
             <p class="card-body">
-              Writing about building, systems, and lessons learned. Long-form pieces, social posts,
-              and behind-the-scenes updates that compound trust over time.
+              Testing workflows, automation, and ways to work fewer hours with better outcomes.
+              When a system works repeatedly, it graduates into a template, then into an offer.
             </p>
             <footer class="card-footer">
-              <span>Platforms: Newsletter & social</span>
-              <span>Cadence: 1–3 pieces / week</span>
+              <span>Focus: leverage per hour worked</span>
+              <span>Tools: AI, automations, simple scripts</span>
             </footer>
           </article>
 
-          <!-- Card 5 -->
+          <!-- Card 6: Community -->
           <article class="card">
             <header class="card-header">
               <div>
-                <h3 class="card-title">Long-Term Bets</h3>
-                <p class="card-role">Research & exploration</p>
+                <h3 class="card-title">Slow Community & Collaboration</h3>
+                <p class="card-role">Founder & friend</p>
               </div>
-              <span class="badge">Stage: Thinking</span>
+              <span class="badge">Stage: Quietly growing</span>
             </header>
             <p class="card-body">
-              Space reserved for bigger arcs: new markets, new technologies, or future products that
-              don’t need to ship tomorrow but quietly shape today’s decisions.
+              Thoughtful connections with builders who care about lifestyle, not just scale.
+              Less “networking,” more shared experiments, honest conversations, and mutual support.
             </p>
             <footer class="card-footer">
-              <span>Time horizon: 3–10 years</span>
-              <span>Output: Notes, prototypes, models</span>
-            </footer>
-          </article>
-
-          <!-- Card 6 -->
-          <article class="card">
-            <header class="card-header">
-              <div>
-                <h3 class="card-title">Community & Relationships</h3>
-                <p class="card-role">Founder & host</p>
-              </div>
-              <span class="badge">Stage: Building</span>
-            </header>
-            <p class="card-body">
-              Conversations with founders, builders, and operators who think long-term. Small,
-              intentional circles instead of random networking.
-            </p>
-            <footer class="card-footer">
-              <span>Format: 1:1 and small groups</span>
-              <span>Goal: Shared leverage, not transactions</span>
+              <span>Format: 1:1, small groups, async</span>
+              <span>Goal: shared leverage & support</span>
             </footer>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Principles & Timeline -->
+    <!-- Tools & engagement -->
+    <section id="tools" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-block">
+            <h2>Play with the tools</h2>
+            <p>
+              A tiny lab in your browser: design your ideal lifestyle business,
+              then spin up a concrete experiment idea you could actually ship.
+            </p>
+          </div>
+          <div class="section-meta">
+            Takes ~2 minutes · No data saved to any server
+          </div>
+        </div>
+
+        <div class="tools-grid">
+          <!-- Tool 1: Lifestyle Leverage Calculator -->
+          <article class="tool-card">
+            <div>
+              <h3 class="tool-title">Lifestyle leverage calculator</h3>
+              <p class="tool-sub">
+                Set your target income and hours. The tool shows your effective hourly value
+                and how “calm vs intense” your design looks—with a simple visual.
+              </p>
+            </div>
+
+            <div class="inputs-grid">
+              <div class="input-row">
+                <label for="incomeInput">
+                  Target monthly income
+                  <span>(in your currency)</span>
+                </label>
+                <input type="number" id="incomeInput" value="5000" min="0" step="100" />
+              </div>
+
+              <div class="input-row">
+                <label for="hoursInput">
+                  Hours you want to work per week
+                </label>
+                <input type="range" id="hoursInput" min="10" max="60" value="30" />
+                <div class="input-inline">
+                  <span>10h (very light)</span>
+                  <span id="hoursLabel">30h / week</span>
+                  <span>60h (very intense)</span>
+                </div>
+              </div>
+
+              <div class="input-row">
+                <label for="timeOffInput">
+                  Weeks completely off per year
+                </label>
+                <input type="range" id="timeOffInput" min="0" max="12" value="4" />
+                <div class="input-inline">
+                  <span>0 weeks</span>
+                  <span id="timeOffLabel">4 weeks off</span>
+                  <span>12 weeks</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="example-buttons">
+              <button class="btn-ghost small preset-btn" data-preset="calm">
+                Calm solo builder
+              </button>
+              <button class="btn-ghost small preset-btn" data-preset="balanced">
+                Balanced operator
+              </button>
+              <button class="btn-ghost small preset-btn" data-preset="hustle">
+                Heavy hustle season
+              </button>
+            </div>
+
+            <div class="calc-output" id="calcOutput">
+              <div>
+                Effective hourly value:
+                <strong id="effectiveHourly">–</strong>
+              </div>
+              <div>
+                Minimum freelance rate to sustain this:
+                <strong id="rateSuggestion">–</strong>
+              </div>
+              <div>
+                Lifestyle profile:
+                <span id="lifestyleProfile" class="tag-pill">–</span>
+              </div>
+            </div>
+
+            <div class="mini-chart">
+              <div class="chart-row">
+                <div class="chart-label">Work load</div>
+                <div class="chart-bar">
+                  <div id="workBar" class="chart-bar-fill"></div>
+                </div>
+              </div>
+              <div class="chart-row">
+                <div class="chart-label">Time off</div>
+                <div class="chart-bar">
+                  <div id="timeOffBar" class="chart-bar-fill"></div>
+                </div>
+              </div>
+              <div class="chart-note" id="chartNote">
+                Adjust the sliders above to see how your working rhythm changes.
+              </div>
+            </div>
+          </article>
+
+          <!-- Tool 2: Experiment Idea Lab -->
+          <article class="tool-card">
+            <div>
+              <h3 class="tool-title">Experiment idea lab</h3>
+              <p class="tool-sub">
+                Pick a theme and generate a tiny experiment you could run in a week.
+                Each idea comes with a “first move” so it’s not just theory.
+              </p>
+            </div>
+
+            <div class="inputs-grid">
+              <div class="input-row">
+                <label for="themeSelect">
+                  Choose a theme
+                </label>
+                <select id="themeSelect">
+                  <option value="lifestyle">Lifestyle business</option>
+                  <option value="ai">AI as design assistant</option>
+                  <option value="passion">Passion / creative project</option>
+                  <option value="community">Community & relationships</option>
+                </select>
+              </div>
+              <div class="input-row">
+                <label for="constraintInput">
+                  Add one constraint (optional)
+                  <span>(e.g., “no social media”, “under 4 hours”)</span>
+                </label>
+                <input type="text" id="constraintInput" placeholder="Optional constraint…" />
+              </div>
+            </div>
+
+            <div class="idea-button-row">
+              <button class="btn-ghost" id="ideaBtn">
+                ✨ Generate experiment idea
+              </button>
+              <button class="btn-ghost" id="ideaCopyBtn">
+                ⧉ Copy idea
+              </button>
+            </div>
+
+            <div class="idea-output" id="ideaOutput">
+              <div class="idea-output-title">Try this:</div>
+              <div id="ideaMain">
+                Choose a theme and click “Generate experiment idea” to get a tiny,
+                one-week experiment.
+              </div>
+              <div class="idea-output-next" id="ideaNext"></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Tool 3: Offer Mix Visualizer -->
+        <article class="tool-card offer-card">
+          <div>
+            <h3 class="tool-title">Offer mix visualizer</h3>
+            <p class="tool-sub">
+              Adjust how much of your business is services, products, and experiments.
+              The chart shows how your “portfolio of energy” looks.
+            </p>
+          </div>
+
+          <div class="inputs-grid">
+            <div class="input-row">
+              <label for="servicesInput">
+                Services focus
+                <span>(client work, retainers)</span>
+              </label>
+              <input type="range" id="servicesInput" min="0" max="100" value="60" />
+            </div>
+            <div class="input-row">
+              <label for="productsInput">
+                Products focus
+                <span>(courses, SaaS, templates)</span>
+              </label>
+              <input type="range" id="productsInput" min="0" max="100" value="25" />
+            </div>
+            <div class="input-row">
+              <label for="experimentsInput">
+                Experiments focus
+                <span>(R&D, weird projects)</span>
+              </label>
+              <input type="range" id="experimentsInput" min="0" max="100" value="15" />
+            </div>
+          </div>
+
+          <div class="offer-chart">
+            <div>
+              Normalized mix (must total 100%):
+              <strong id="offerMixLabel">–</strong>
+            </div>
+            <div class="offer-bar">
+              <div id="offerServicesSeg" class="offer-segment services"></div>
+              <div id="offerProductsSeg" class="offer-segment products"></div>
+              <div id="offerExperimentsSeg" class="offer-segment experiments"></div>
+            </div>
+            <div class="offer-legend">
+              <div class="offer-legend-item">
+                <span class="offer-legend-color services"></span> Services
+              </div>
+              <div class="offer-legend-item">
+                <span class="offer-legend-color products"></span> Products
+              </div>
+              <div class="offer-legend-item">
+                <span class="offer-legend-color experiments"></span> Experiments
+              </div>
+            </div>
+            <div class="offer-note" id="offerProfile">
+              Drag the sliders above to see how your energy shifts between client work,
+              scalable assets, and playful R&D.
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- How I build + AI philosophy -->
     <section class="section">
       <div class="container layout-two">
         <div>
-          <p class="list-title">How I build</p>
+          <p class="list-title">How I design this lifestyle</p>
           <h2 style="margin: 0 0 10px; font-size: 1.2rem; letter-spacing: -0.02em;">
             Operating principles
           </h2>
           <p style="margin: 0 0 18px; font-size: 0.9rem; color: var(--text-muted); max-width: 30rem;">
-            Simple rules that guide how I choose projects, work with people, and make decisions when
-            the path isn’t obvious.
+            A few simple rules that keep the business aligned with the life I actually want,
+            not the life the internet says I should chase.
           </p>
 
           <ul class="pill-list">
             <li>
               <span class="list-bullet"></span>
-              Build for clarity, not complexity.
-              <span>Every project should be explainable in one sentence.</span>
+              Lifestyle first, business second.
+              <span>Income should support the life I want, not consume it.</span>
             </li>
             <li>
               <span class="list-bullet"></span>
-              Ship small, real things often.
-              <span>Momentum beats perfection; feedback is more accurate than theory.</span>
+              Fewer things, done deeply.
+              <span>Keep the portfolio light so each project gets real attention.</span>
             </li>
             <li>
               <span class="list-bullet"></span>
-              Respect energy & attention.
-              <span>Align work with strengths and protect focus from busywork.</span>
+              AI as a collaborator, not a replacement.
+              <span>Use it to explore, sketch, and test—not to erase my own voice.</span>
             </li>
             <li>
               <span class="list-bullet"></span>
-              Relationships > transactions.
-              <span>Play the long game. Be easy to recommend, not easy to forget.</span>
+              Simple over impressive.
+              <span>If a process can be simpler, cleaner, or calmer, it should be.</span>
             </li>
             <li>
               <span class="list-bullet"></span>
-              Systems over willpower.
-              <span>Design processes that make the right things happen by default.</span>
+              Protect unstructured time.
+              <span>Space to think and play is a non-negotiable part of the system.</span>
             </li>
           </ul>
         </div>
 
         <aside class="timeline" aria-label="Timeline">
-          <div class="hero-panel-title" style="margin-bottom: 4px;">Timeline (high-level)</div>
+          <div class="hero-panel-title" style="margin-bottom: 4px;">AI in my workflow</div>
           <ul class="timeline-list">
             <li class="timeline-item">
-              <div class="timeline-year">Earlier</div>
+              <div class="timeline-year">Sketch</div>
               <div>
-                <span class="timeline-main">Learning & freelance work</span>
-                <span class="timeline-note">Experimenting with skills, clients, and industries.</span>
+                <span class="timeline-main">Idea exploration</span>
+                <span class="timeline-note">Use AI to brainstorm directions, moodboards, and rough structures.</span>
               </div>
             </li>
             <li class="timeline-item">
-              <div class="timeline-year">Then</div>
+              <div class="timeline-year">Design</div>
               <div>
-                <span class="timeline-main">First serious products & services</span>
-                <span class="timeline-note">Proving things can make money, not just look good.</span>
+                <span class="timeline-main">Mockups & demos</span>
+                <span class="timeline-note">
+                  Generate draft layouts, flows, and copy for single-page demos and prototypes.
+                </span>
               </div>
             </li>
             <li class="timeline-item">
-              <div class="timeline-year">Now</div>
+              <div class="timeline-year">Refine</div>
               <div>
-                <span class="timeline-main">Focused portfolio of ventures</span>
-                <span class="timeline-note">Aligning everything under a coherent thesis.</span>
+                <span class="timeline-main">Human edit & taste</span>
+                <span class="timeline-note">
+                  Keep what feels right, rewrite what doesn’t. Personal taste has the final say.
+                </span>
               </div>
             </li>
             <li class="timeline-item">
-              <div class="timeline-year">Next</div>
+              <div class="timeline-year">Ship</div>
               <div>
-                <span class="timeline-main">Deeper, fewer, bigger bets</span>
-                <span class="timeline-note">Compounding assets: brand, systems, and relationships.</span>
+                <span class="timeline-main">Simple, real outputs</span>
+                <span class="timeline-note">
+                  Turn the best ideas into actual tools, offers, or creative pieces that people can use.
+                </span>
               </div>
             </li>
           </ul>
@@ -899,7 +1565,7 @@
       </div>
     </section>
 
-    <!-- Collaboration / Contact -->
+    <!-- Collaboration / Contact + FAQ -->
     <section class="section">
       <div class="container">
         <div class="callout">
@@ -907,44 +1573,81 @@
             <div>
               <h2>Ways we can work together</h2>
               <p>
-                If our interests align, I’m open to a few specific types of collaboration. Clear
-                scope, transparent value, and no drama.
+                If you care about lifestyle, thoughtful use of AI, and calm but serious work,
+                these are the most natural ways our paths can overlap.
               </p>
             </div>
             <div>
               <span class="pill">
                 <span class="pill-dot"></span>
-                Best reached via email
+                Send me a short, specific email
               </span>
             </div>
           </div>
 
           <div class="callout-grid">
             <div class="callout-card">
-              <p class="callout-card-title">Founder to founder</p>
+              <p class="callout-card-title">Lifestyle business audits</p>
               <p class="callout-card-body">
-                Swapping notes, exploring ideas, or walking through a live problem in your business.
-                Casual, honest, and off the record.
+                A focused look at your offers, pricing, and systems—through the lens of
+                “more freedom, not just more revenue.”
               </p>
-              <span class="callout-card-tag">Ideal: early-stage, product-leaning founders</span>
+              <span class="callout-card-tag">For indie founders & small teams</span>
             </div>
 
             <div class="callout-card">
-              <p class="callout-card-title">Advisory & strategy</p>
+              <p class="callout-card-title">AI-assisted design demos</p>
               <p class="callout-card-body">
-                Helping you clarify positioning, offers, and systems so you’re not just “busy” but
-                actually building leverage.
+                Co-creating concept demos: landing pages, flows, and visuals where AI does the
+                sketching and we refine by hand.
               </p>
-              <span class="callout-card-tag">Format: short sprints or light retainer</span>
+              <span class="callout-card-tag">Perfect for early product ideas</span>
             </div>
 
             <div class="callout-card">
-              <p class="callout-card-title">Product & growth experiments</p>
+              <p class="callout-card-title">Creative & passion collaborations</p>
               <p class="callout-card-body">
-                Collaborating on small, scoped experiments: landing pages, MVPs, or one-file tools
-                designed to test demand quickly.
+                Joint creative projects—writing, audio, visuals, or tools—where the goal is
+                expression first, monetization second.
               </p>
-              <span class="callout-card-tag">Outcome: data, not just ideas</span>
+              <span class="callout-card-tag">If it feels fun and aligned, I’m listening</span>
+            </div>
+          </div>
+
+          <div class="faq">
+            <div class="faq-title">A few quick questions you might be thinking:</div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>“Is this just another AI agency?”</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                No. AI is part of the toolkit, not the product. The real work is designing calm,
+                sustainable systems around your life and business—AI just helps us move faster.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>“What kind of founders do you enjoy working with?”</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                People who care about their craft, value honesty, and don’t need fake urgency.
+                Indie builders, calm CEOs, and curious creatives usually feel at home here.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>“How do I start the conversation?”</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                Send a 3–5 line email: who you are, what you’re building, and one specific problem
+                you’re wrestling with. If it’s a fit, we’ll explore a small, low-pressure next step.
+              </div>
             </div>
           </div>
         </div>
@@ -955,15 +1658,17 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        Available for
-        <span class="pill">thoughtful collaborations</span>
-        <span class="pill">select advisory</span>
-        <span class="pill">interesting problems</span>
+        Built as a <span class="pill">lifestyle-friendly business</span>
+        with <span class="pill">AI as a quiet superpower</span>
+        and <span class="pill">passion projects on the side</span>
       </div>
       <div class="footer-contact">
-        <!-- Replace these links with your real ones -->
         <span>Email:</span>
-        <a href="mailto:you@yourdomain.com">you@yourdomain.com</a>
+        <!-- Replace this with your real email -->
+        <a id="emailText" href="mailto:you@yourdomain.com">you@yourdomain.com</a>
+        <button class="copy-btn" id="copyEmailBtn">
+          <span>⧉</span> Copy
+        </button>
         <span>·</span>
         <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
         <span>·</span>
@@ -971,5 +1676,353 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Smooth scroll for pills with data-target
+    document.querySelectorAll('.pill[data-target]').forEach(function(pill) {
+      pill.addEventListener('click', function() {
+        var target = pill.getAttribute('data-target');
+        var el = document.querySelector(target);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Email button opens prefilled draft
+    var emailBtn = document.getElementById('emailBtn');
+    if (emailBtn) {
+      emailBtn.addEventListener('click', function() {
+        var email = 'you@yourdomain.com'; // replace with your actual email
+        var subject = encodeURIComponent('Quick intro: lifestyle business & AI');
+        var body = encodeURIComponent(
+          "Hey,\n\nI found your lifestyle business page and wanted to introduce myself.\n\n" +
+          "Who I am:\n" +
+          "What I’m building:\n" +
+          "One specific challenge I’d love your perspective on:\n\n" +
+          "- "
+        );
+        window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
+      });
+    }
+
+    // Copy email button
+    var copyBtn = document.getElementById('copyEmailBtn');
+    var emailText = document.getElementById('emailText');
+    if (copyBtn && emailText) {
+      copyBtn.addEventListener('click', function() {
+        var email = emailText.textContent.trim();
+        navigator.clipboard.writeText(email).then(function() {
+          copyBtn.classList.add('success');
+          copyBtn.textContent = 'Copied';
+          setTimeout(function() {
+            copyBtn.classList.remove('success');
+            copyBtn.innerHTML = '<span>⧉</span> Copy';
+          }, 1800);
+        }).catch(function() {});
+      });
+    }
+
+    // Simple rotating "today's focus" lines
+    (function() {
+      var lines = [
+        'Today’s focus: drafting new micro-tool ideas with AI as my sketchpad.',
+        'Today’s focus: simplifying a client\'s system so they can work less, not more.',
+        'Today’s focus: turning a passion project into a small, shippable experiment.',
+        'Today’s focus: exploring new AI-assisted design flows for single-page demos.'
+      ];
+      var el = document.getElementById('nowWorking');
+      if (!el) return;
+      var span = el.querySelector('span:nth-child(2)');
+      var index = Math.floor(Math.random() * lines.length);
+      span.textContent = lines[index];
+    })();
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+      var q = item.querySelector('.faq-question');
+      var toggle = item.querySelector('.faq-toggle');
+      q.addEventListener('click', function() {
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) {
+          i.classList.remove('open');
+          var t = i.querySelector('.faq-toggle');
+          if (t) t.textContent = '+';
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          if (toggle) toggle.textContent = '–';
+        }
+      });
+    });
+
+    // Lifestyle leverage calculator logic
+    var incomeInput = document.getElementById('incomeInput');
+    var hoursInput = document.getElementById('hoursInput');
+    var timeOffInput = document.getElementById('timeOffInput');
+    var hoursLabel = document.getElementById('hoursLabel');
+    var timeOffLabel = document.getElementById('timeOffLabel');
+    var effectiveHourlyEl = document.getElementById('effectiveHourly');
+    var rateSuggestionEl = document.getElementById('rateSuggestion');
+    var lifestyleProfileEl = document.getElementById('lifestyleProfile');
+    var workBar = document.getElementById('workBar');
+    var timeOffBar = document.getElementById('timeOffBar');
+    var chartNote = document.getElementById('chartNote');
+
+    function formatCurrency(value) {
+      if (!isFinite(value)) return '–';
+      if (value >= 1000) {
+        return value.toLocaleString(undefined, { maximumFractionDigits: 0 });
+      }
+      return value.toLocaleString(undefined, { maximumFractionDigits: 2 });
+    }
+
+    function updateCalculator() {
+      var monthly = parseFloat(incomeInput.value) || 0;
+      var hoursWeek = parseFloat(hoursInput.value) || 0;
+      var weeksOff = parseFloat(timeOffInput.value) || 0;
+
+      hoursLabel.textContent = hoursWeek + 'h / week';
+      timeOffLabel.textContent = weeksOff + ' weeks off';
+
+      var weeksWorked = 52 - weeksOff;
+      if (weeksWorked < 0) weeksWorked = 0;
+
+      var annualIncome = monthly * 12;
+      var totalHoursYear = hoursWeek * weeksWorked;
+
+      var effectiveHourly = totalHoursYear > 0 ? annualIncome / totalHoursYear : 0;
+      var minRate = effectiveHourly * 1.25; // small buffer
+
+      effectiveHourlyEl.textContent = totalHoursYear > 0 ? formatCurrency(effectiveHourly) + ' / hour' : '–';
+      rateSuggestionEl.textContent = totalHoursYear > 0 ? formatCurrency(minRate) + ' / hour' : '–';
+
+      // Lifestyle profile
+      var profile = '';
+      if (hoursWeek <= 20 && weeksOff >= 4) {
+        profile = 'Calm builder';
+      } else if (hoursWeek <= 35) {
+        profile = 'Balanced operator';
+      } else if (hoursWeek <= 45) {
+        profile = 'Ambitious but risky';
+      } else {
+        profile = 'High-intensity season';
+      }
+      lifestyleProfileEl.textContent = profile;
+
+      // Chart: use 60h max for work, 12 weeks for time off
+      var workPercent = Math.min(100, Math.max(0, (hoursWeek / 60) * 100));
+      var timeOffPercent = Math.min(100, Math.max(0, (weeksOff / 12) * 100));
+      if (workBar) workBar.style.width = workPercent + '%';
+      if (timeOffBar) timeOffBar.style.width = timeOffPercent + '%';
+
+      var note = '';
+      if (hoursWeek <= 25 && weeksOff >= 4) {
+        note = 'You’re designing a pretty calm rhythm. The main risk is under-charging.';
+      } else if (hoursWeek <= 40) {
+        note = 'This looks like a solid, sustainable pace if you protect your boundaries.';
+      } else {
+        note = 'You’re in a heavy push season. Make sure it’s temporary and for a clear reason.';
+      }
+      chartNote.textContent = note;
+    }
+
+    if (incomeInput && hoursInput && timeOffInput) {
+      ['input', 'change'].forEach(function(ev) {
+        incomeInput.addEventListener(ev, updateCalculator);
+        hoursInput.addEventListener(ev, updateCalculator);
+        timeOffInput.addEventListener(ev, updateCalculator);
+      });
+      updateCalculator();
+    }
+
+    // Preset buttons for calculator
+    document.querySelectorAll('.preset-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var preset = btn.getAttribute('data-preset');
+        if (!preset) return;
+
+        if (preset === 'calm') {
+          incomeInput.value = 4000;
+          hoursInput.value = 20;
+          timeOffInput.value = 6;
+        } else if (preset === 'balanced') {
+          incomeInput.value = 7000;
+          hoursInput.value = 32;
+          timeOffInput.value = 4;
+        } else if (preset === 'hustle') {
+          incomeInput.value = 10000;
+          hoursInput.value = 50;
+          timeOffInput.value = 1;
+        }
+        updateCalculator();
+      });
+    });
+
+    // Experiment idea lab
+    var ideaBtn = document.getElementById('ideaBtn');
+    var ideaCopyBtn = document.getElementById('ideaCopyBtn');
+    var themeSelect = document.getElementById('themeSelect');
+    var constraintInput = document.getElementById('constraintInput');
+    var ideaMain = document.getElementById('ideaMain');
+    var ideaNext = document.getElementById('ideaNext');
+
+    var ideas = {
+      lifestyle: [
+        {
+          title: 'Design a “tiny offer” around something you already do for free.',
+          next: 'Pick one repeating favour you do for friends (e.g., landing page feedback). Turn it into a paid, 60-minute audit with a fixed price and a one-page booking link.'
+        },
+        {
+          title: 'Run a 7-day “office hours” experiment.',
+          next: 'For one week, open a daily 30-minute slot where people can bring a specific problem. Track which questions repeat and use that to define your next productized service.'
+        },
+        {
+          title: 'Replace one client project with a product task.',
+          next: 'Block 2–3 hours this week that would normally go to client work and use it to create a reusable template, checklist, or mini-guide you can sell or bundle with services.'
+        }
+      ],
+      ai: [
+        {
+          title: 'Use AI to storyboard a one-page product demo.',
+          next: 'Pick one idea and prompt AI to outline the hero section, three key benefits, and one call-to-action. Then manually redraw or rebuild the layout in your own style.'
+        },
+        {
+          title: 'Create an “AI-as-designer” moodboard session.',
+          next: 'Ask AI for 10 visual directions for your brand or product, then manually pick 2–3 that feel right and expand those with your own taste and constraints.'
+        },
+        {
+          title: 'Prototype a single AI-assisted workflow.',
+          next: 'Choose one repetitive task (e.g., rewriting emails). Build a tiny workflow where AI drafts the first version and you only edit. Measure how much time you save in a week.'
+        }
+      ],
+      passion: [
+        {
+          title: 'Ship a 3-piece creative mini-series.',
+          next: 'Write/record/design three small pieces that belong together (e.g., theme, colour palette, mood). Publish them as a single “chapter” instead of three disconnected posts.'
+        },
+        {
+          title: 'Create a “no metrics” creative week.',
+          next: 'For seven days, create something daily (poem, sketch, loop) and share it in one small, safe corner of the internet. No stats-checking, only consistency.'
+        },
+        {
+          title: 'Turn one old idea into a new format.',
+          next: 'Take an old thread, note, or rant you love and turn it into a video, zine page, or audio note. Use AI only to help outline or clean grammar, not to rewrite the voice.'
+        }
+      ],
+      community: [
+        {
+          title: 'Host a “3 founder coffee” call.',
+          next: 'Invite two founders you respect (who don’t know each other yet) to a 45-minute group call with one guiding question. No pitch, just experience-sharing.'
+        },
+        {
+          title: 'Start a “build log” for a tiny circle.',
+          next: 'Create a small group chat (3–5 people) where you share one short build update per day. Keep it raw and practical, not polished “content.”'
+        },
+        {
+          title: 'Offer one focused “problem-solving” session.',
+          next: 'Post a simple offer: 30 minutes to untangle one specific problem (positioning, process, etc.). In return, ask for the right to anonymize the lesson and turn it into content.'
+        }
+      ]
+    };
+
+    function generateIdea() {
+      var theme = themeSelect.value || 'lifestyle';
+      var pool = ideas[theme] || ideas['lifestyle'];
+      var index = Math.floor(Math.random() * pool.length);
+      var baseIdea = pool[index];
+
+      var constraint = (constraintInput.value || '').trim();
+      var title = baseIdea.title;
+      var next = baseIdea.next;
+
+      if (constraint) {
+        title += ' (with constraint: ' + constraint + ')';
+      }
+
+      ideaMain.textContent = title;
+      ideaNext.textContent = next;
+    }
+
+    if (ideaBtn) {
+      ideaBtn.addEventListener('click', generateIdea);
+    }
+
+    if (ideaCopyBtn) {
+      ideaCopyBtn.addEventListener('click', function() {
+        var text = 'Experiment idea:\n\n' +
+          ideaMain.textContent + '\n\nNext step:\n' +
+          ideaNext.textContent;
+        navigator.clipboard.writeText(text).then(function() {
+          ideaCopyBtn.classList.add('success');
+          ideaCopyBtn.textContent = 'Copied';
+          setTimeout(function() {
+            ideaCopyBtn.classList.remove('success');
+            ideaCopyBtn.textContent = '⧉ Copy idea';
+          }, 1800);
+        }).catch(function() {});
+      });
+    }
+
+    // Offer Mix Visualizer
+    var servicesInput = document.getElementById('servicesInput');
+    var productsInput = document.getElementById('productsInput');
+    var experimentsInput = document.getElementById('experimentsInput');
+    var offerServicesSeg = document.getElementById('offerServicesSeg');
+    var offerProductsSeg = document.getElementById('offerProductsSeg');
+    var offerExperimentsSeg = document.getElementById('offerExperimentsSeg');
+    var offerMixLabel = document.getElementById('offerMixLabel');
+    var offerProfile = document.getElementById('offerProfile');
+
+    function updateOfferMix() {
+      var s = parseFloat(servicesInput.value) || 0;
+      var p = parseFloat(productsInput.value) || 0;
+      var e = parseFloat(experimentsInput.value) || 0;
+      var total = s + p + e;
+
+      if (total <= 0) {
+        offerServicesSeg.style.width = '0%';
+        offerProductsSeg.style.width = '0%';
+        offerExperimentsSeg.style.width = '0%';
+        offerMixLabel.textContent = '–';
+        offerProfile.textContent = 'Drag the sliders above to see how your energy shifts between client work, scalable assets, and playful R&D.';
+        return;
+      }
+
+      var sPerc = (s / total) * 100;
+      var pPerc = (p / total) * 100;
+      var ePerc = (e / total) * 100;
+
+      offerServicesSeg.style.width = sPerc + '%';
+      offerProductsSeg.style.width = pPerc + '%';
+      offerExperimentsSeg.style.width = ePerc + '%';
+
+      offerMixLabel.textContent =
+        sPerc.toFixed(0) + '% services · ' +
+        pPerc.toFixed(0) + '% products · ' +
+        ePerc.toFixed(0) + '% experiments';
+
+      var profileText = '';
+      if (sPerc >= 60 && pPerc < 25 && ePerc < 20) {
+        profileText = 'You’re very services-heavy. Great for cashflow, but consider slowly growing a product or two.';
+      } else if (pPerc >= 50 && sPerc <= 35) {
+        profileText = 'You’re product-led. Strong leverage—just make sure you still talk to real humans regularly.';
+      } else if (ePerc >= 30) {
+        profileText = 'You’re in exploration mode. Amazing for creativity—set light constraints so it doesn’t drift forever.';
+      } else {
+        profileText = 'You’ve got a reasonably mixed portfolio. Adjust based on what you enjoy most and what actually pays.';
+      }
+      offerProfile.textContent = profileText;
+    }
+
+    if (servicesInput && productsInput && experimentsInput) {
+      ['input', 'change'].forEach(function(ev) {
+        servicesInput.addEventListener(ev, updateOfferMix);
+        productsInput.addEventListener(ev, updateOfferMix);
+        experimentsInput.addEventListener(ev, updateOfferMix);
+      });
+      updateOfferMix();
+    }
+  </script>
 </body>
 </html>
